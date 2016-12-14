@@ -1,18 +1,19 @@
 var fs = require('fs');
 var parse = require('csv-parse');
 
-var inputFile='parking_feb_2016.csv';
+module.exports = function parsingSetup(status) {
+  var inputFile='parking_feb_2016.csv';
+  var csvData=[];
 
-
-var csvData=[];
-
-fs.createReadStream(inputFile)
-    .pipe(parse({delimiter: ','}))
+  fs.createReadStream(inputFile)
+    .pipe(parse({delimiter: ','},{columns: true}))
     .on('data', function(csvrow) {
         // console.log(csvrow);
         csvData.push(csvrow);
+        // console.log('pushed on some data');
     })
     .on('end',function() {
-      console.log((csvData.length) - 1);
-
+      console.log('end event??');
+      status(csvData);
     });
+}
