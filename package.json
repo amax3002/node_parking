@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/amax3002/node_parking/issues"
   },
-  "homepage": "https://github.com/amax3002/node_parking#readme"
+  "homepage": "https://github.com/amax3002/node_parking#readme",
+  "dependencies": {
+    "csv-parse": "^1.1.7"
+  }
 }
