@@ -13,7 +13,6 @@ module.exports = function parsingSetup(status) {
         // console.log('pushed on some data');
     })
     .on('end',function() {
-      console.log('end event??');
       status(csvData);
     });
 }
